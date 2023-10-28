@@ -1,22 +1,23 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - check the code
+ * _strcat - concatenates two strings
+ * @dest: string 1
+ * @src: strint 2
  *
- * Return: Always 0.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int main(void)
+char *_strcat(char *dest, char *src)
 {
-    char s1[98] = "Hello ";
-    char s2[] = "World!\n";
-    char *ptr;
+	int i, j, k;
 
-    printf("%s\n", s1);
-    printf("%s", s2);
-    ptr = _strcat(s1, s2);
-    printf("%s", s1);
-    printf("%s", s2);
-    printf("%s", ptr);
-    return (0);
+	i = 0, j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[j] != '\0')
+		j++;
+	for (k = 0; k <= j; k++, i++)
+		dest[i] = src[k];
+	return (dest);
 }
